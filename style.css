@@ -60,3 +60,112 @@ button {
   cursor: pointer;
   background-color: transparent;
 }
+
+body {
+  font-size: 20px;
+}
+
+.container {
+  max-width: 1230px;
+  padding: 0 15px;
+  margin: 100px auto 0;
+}
+
+.header,
+.category-header {
+  display: flex;
+  background-color:rgb(165, 168, 168);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.header__name,
+.note__name{
+  width: 20%;
+}
+
+.header__created,
+.note__created {
+  width: 15%;
+}
+
+.header__category,
+.note__category {
+  width: 15%;
+}
+
+.header__content,
+.note__content {
+  width: 25%;
+}
+
+.header__dates,
+.note__dates {
+  width: 20%;
+}
+
+.header__icons,
+.note__icons {
+  width: 15%;
+  margin-left: auto;
+  display: flex;
+  gap: 15px;
+  justify-content: end;
+}
+
+.note__item,
+.category__item {
+  display: flex;
+  background-color:aquamarine;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.note__list,
+.category__list {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn-create {
+  border: 1px solid rgb(24, 21, 21);
+  padding: 10px;
+  border-radius: 15px;
+  margin-left: auto;
+  display: block;
+}
+
+.category-header {
+  margin-top: 50px;
+}
+
+.category-header__name,
+.category__name {
+  width: 40%;
+}
+
+.category-header__active,
+.category__active {
+  width: 30%;
+}
+
+.category-header__archive,
+.category__archive {
+  width: 30%;
+}
+
+.category__item {
+  display: flex;
+  background-color:rgb(149, 144, 218)
+}
+
+.category__name {
+  display: flex;
+}
+
+.category__name span {
+  margin-left: 15px;
+}

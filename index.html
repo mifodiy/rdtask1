@@ -1,14 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="style.css" rel="stylesheet">
   <title>Note App</title>
 </head>
+
 <body>
-  
-  
+  <div class="container">
+    <header class="header">
+      <div class="header__name">Name</div>
+      <div class="header__created">Created</div>
+      <div class="header__category">Category</div>
+      <div class="header__content">Content</div>
+      <div class="header__dates">Dates</div>
+      <div class="header__icons">
+        <img class="header__archive" src="image/archive.svg" alt="archive">
+        <img class="header__delete" src="image/trash.svg" alt="delete">
+      </div>
+    </header>
+
+    <ul class="note__list">
+      <li class="note__item">
+        <div class="note__name">Name</div>
+        <div class="note__created">Created</div>
+        <div class="note__category">Category</div>
+        <div class="note__content">Content</div>
+        <div class="note__dates">Dates</div>
+        <div class="note__icons">
+          <img class="note__edit" src="image/edit.svg" alt="edit">
+          <img class="note__archive" src="image/archive.svg" alt="archive">
+          <img class="note__delete" src="image/trash.svg" alt="delete">
+        </div>
+      </li>
+      <li class="note__item">
+        <div class="note__name">Name</div>
+        <div class="note__created">Created</div>
+        <div class="note__category">Category</div>
+        <div class="note__content">Content</div>
+        <div class="note__dates">Dates</div>
+        <div class="note__icons">
+          <img class="note__edit" src="image/edit.svg" alt="edit">
+          <img class="note__archive" src="image/archive.svg" alt="archive">
+          <img class="note__delete" src="image/trash.svg" alt="delete">
+        </div>
+      </li>
+    </ul>
+    <button class="btn-create">Create note</button>
+
+    <div class="category-header">
+      <div class="category-header__name">Category</div>
+      <div class="category-header__active">Active</div>
+      <div class="category-header__archive">Archived</div>
+    </div>
+
+    <ul class="category__list">
+      <li class="category__item">
+        <div class="category__name">
+          <img class="category__img" src="image/bookmark.svg" alt="random thought">
+          <span>Random Thought</span>
+        </div>
+        <div class="category__active">4</div>
+        <div class="category__archive">4</div>
+      </li>
+      <li class="category__item">
+        <div class="category__name">
+          <img class="category__img" src="image/cart.svg" alt="Task">
+          <span>Task</span>
+        </div>
+        <div class="category__active">4</div>
+        <div class="category__archive">4</div>
+      </li>
+      <li class="category__item">
+        <div class="category__name">
+          <img class="category__img" src="image/lightbulb.svg" alt="idea">
+          <span>Idea</span>
+        </div>
+        <div class="category__active">4</div>
+        <div class="category__archive">4</div>
+      </li>
+    </ul>
+  </div>
+
+
+
+
   <script src="js/index.js"></script>
 </body>
+
 </html>
