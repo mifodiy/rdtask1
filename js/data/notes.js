@@ -98,6 +98,16 @@ export const makeNewNoteObj = (form, noteId) => ({
   archived: false,
 });
 
+export const calculateActive = (category) => {
+  return notes.reduce((acc, note) => 
+  (note.category === category && note.archived === false ? acc + 1 : acc), 0)
+}
+
+export const calculateArchive = (category) => {
+  return notes.reduce((acc, note) => 
+  (note.category === category && note.archived === true ? acc + 1 : acc), 0)
+}
+
 (() =>
   notes.map(
     (note) =>

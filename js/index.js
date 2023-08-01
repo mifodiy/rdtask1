@@ -1,9 +1,12 @@
+import { calculateActive, calculateArchive } from "./data/notes.js";
 import { renderMainTable } from "./render/renderMainTable.js";
+import { renderSummaryTable } from "./render/renderSummaryTable.js";
 import createNote from "./utils/createNote.js";
 import { closePopup, openPopup } from "./utils/showPopup.js";
 
 
 renderMainTable();
+renderSummaryTable();
 
 const createBtn = document.querySelector('.btn-create');
 const popup = document.querySelector('.popup');
@@ -25,6 +28,7 @@ form.addEventListener("submit", function (event) {
   event.preventDefault();
   createNote();
   renderMainTable();
+  renderSummaryTable();
 });
 
 
