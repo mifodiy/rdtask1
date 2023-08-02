@@ -12,10 +12,11 @@ const createBtn = document.querySelector('.btn-create');
 const popup = document.querySelector('.popup');
 const closePopupBtn = document.querySelector('.popup__close');
 const form = document.querySelector('.popup__form');
+const categoryItems = document.querySelectorAll('.category__item');
 
 createBtn.addEventListener('click', () => openPopup(popup));
 
-closePopupBtn.addEventListener('click', closePopup(popup))
+closePopupBtn.addEventListener('click', () => closePopup(popup))
 
 popup.addEventListener('click', (e) => {
   console.log(e.target);
@@ -31,5 +32,9 @@ form.addEventListener("submit", function (event) {
   renderSummaryTable();
 });
 
-
+categoryItems.forEach(item => {
+  item.addEventListener('click', () => {
+    item.nextElementSibling.classList.toggle('close');
+  })
+})
 

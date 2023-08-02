@@ -1,4 +1,5 @@
-import { calculateActive, calculateArchive } from "../data/notes.js";
+import { makeNoteItem } from "../data/makeNoteItem.js";
+import { calculateActive, calculateArchive, getNotes } from "../data/notes.js";
 
 export const renderSummaryTable = () => {
   const activeTask = document.querySelector('.category__active--task');
@@ -14,5 +15,21 @@ export const renderSummaryTable = () => {
   archiveIdea.innerHTML = calculateArchive('Idea');
   activeThought.innerHTML = calculateActive('Random Thought');
   archiveThought.innerHTML = calculateArchive('Random Thought');
+
+  const renderArchiveTable = () => {
+    const archiveList = document.querySelectorAll(`.archive__list`);
+
+    getNotes().map(note => {
+      if (note.archived) {
+        Array.from(archiveList).map(body => {
+          body.id === note.category ?
+            body.innerHTML += makeNoteItem(note) : false
+        })
+      }
+    });
+  }
+
+  renderArchiveTable();
+
 }
 

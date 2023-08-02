@@ -27,7 +27,7 @@ let notes = [
     category: 'Idea',
     content: 'new feature',
     dates: '27/7/2023',
-    archived: false,
+    archived: true,
   },
   {
     id: 4,

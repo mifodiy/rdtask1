@@ -72,6 +72,14 @@ body {
   margin: 0 auto;
 }
 
+.close {
+  display: none;
+}
+
+.open {
+  display: block;
+}
+
 .header,
 .category-header {
   display: flex;
@@ -141,6 +149,12 @@ body {
 .note__icons img {
   width: 24px;
   cursor: pointer;
+}
+
+.unarchiveBtn {
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .btn-create {
