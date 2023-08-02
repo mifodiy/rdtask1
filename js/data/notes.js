@@ -112,6 +112,18 @@ export const delNote = (noteId) => {
   notes = [...notes.filter(el => el.id !== noteId)];
 }
 
+export const archiveNote = (noteId) => {
+  notes.map(note => {
+    note.id === noteId ? note.archived = true : false
+  })
+}
+
+export const unarchiveNote = (noteId) => {
+  notes.map(note => {
+    note.id === noteId ? note.archived = false : false
+  })
+}
+
 (() =>
   notes.map(
     (note) =>

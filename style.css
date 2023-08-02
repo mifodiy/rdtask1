@@ -197,6 +197,12 @@ body {
   margin-left: 15px;
 }
 
+.archive__list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 .popup {
   position: fixed;
   top: 0;

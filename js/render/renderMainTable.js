@@ -1,6 +1,7 @@
 import { makeNoteItem } from "../data/makeNoteItem.js";
 import { getNotes } from "../data/notes.js";
 import { deleteNote } from "../utils/deleteNote.js";
+import { achiveNoteItem } from "../utils/updateArchiveNote.js";
 
 export const renderMainTable = () => {
   const notesList = document.querySelector('.note__list');
@@ -26,5 +27,6 @@ export const addNotesBtn = (noteList) => {
 
     //editBtn.addEventListener('click', () => editNote(noteId));
     delBtn.addEventListener('click', () => deleteNote(noteId));
+    archiveBtn.addEventListener('click', () => achiveNoteItem(noteId));
   })
 }

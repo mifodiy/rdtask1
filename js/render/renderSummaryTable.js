@@ -1,5 +1,6 @@
 import { makeNoteItem } from "../data/makeNoteItem.js";
 import { calculateActive, calculateArchive, getNotes } from "../data/notes.js";
+import { unachiveNoteItem } from "../utils/updateArchiveNote.js";
 
 export const renderSummaryTable = () => {
   const activeTask = document.querySelector('.category__active--task');
@@ -19,6 +20,10 @@ export const renderSummaryTable = () => {
   const renderArchiveTable = () => {
     const archiveList = document.querySelectorAll(`.archive__list`);
 
+    Array.from(archiveList).map(body => {
+      body.innerHTML = '';
+    })
+
     getNotes().map(note => {
       if (note.archived) {
         Array.from(archiveList).map(body => {
@@ -30,6 +35,18 @@ export const renderSummaryTable = () => {
   }
 
   renderArchiveTable();
+  addUnarchiveBtn();
 
+}
+
+const addUnarchiveBtn = () => {
+  const archiveItems = document.querySelectorAll('.archive__list .note__item');
+
+  archiveItems.forEach(note => {
+    const archiveId = +note.classList[1];
+    const unarchiveBtn = note.querySelector('.unarchiveBtn');
+
+    unarchiveBtn.addEventListener('click', () => unachiveNoteItem(archiveId));
+  })
 }
 
