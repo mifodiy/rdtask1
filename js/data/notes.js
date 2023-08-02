@@ -108,6 +108,10 @@ export const calculateArchive = (category) => {
   (note.category === category && note.archived === true ? acc + 1 : acc), 0)
 }
 
+export const delNote = (noteId) => {
+  notes = [...notes.filter(el => el.id !== noteId)];
+}
+
 (() =>
   notes.map(
     (note) =>
