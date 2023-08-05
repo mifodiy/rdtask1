@@ -77,24 +77,34 @@ const categoryIcon = [
   },
 ];
 
-const dateRegEx = /^(0?[1-9]|1[012])[ /](0?[1-9]|[12][0-9]|3[01])[ /](19|20)?[0-9]{2}$/;
+export let isUpdate = false, updateId;
+
+export const changeUpdateStatus = (status) => {
+  isUpdate = status;
+}
+
+export const changeUpdateId = (id) => {
+  updateId = id;
+}
+
+const dateRegex = /(\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4})/g;
 export const findDates = (value) => {
-  let text = value.split(' ');
-  const dates = text.map((str) => str.replace(',', '')).filter((str) => str.match(dateRegEx));
+  const dates = value.match(dateRegex);
+  if (!dates) return '';
   return dates.join(', ');
 };
 
 export const getNotes = () => notes;
 
 export const addNewNote = (newNote) => (notes = [...notes, newNote]);
-export const makeNewNoteObj = (form, noteId) => ({
+export const makeNewNoteObj = (noteItem, noteId) => ({
   id: noteId || Date.now(),
-  img: categoryIcon.filter((img) => img.imgName === form.elements[1].value)[0]?.imgUrl || ' ',
-  name: form.elements[0].value,
+  img: categoryIcon.filter((img) => img.imgName === noteItem.category)[0]?.imgUrl || ' ',
+  name: noteItem.name,
   creationDate: new Date().toLocaleDateString('en-CA'),
-  category: form.elements[1].value,
-  content: form.elements[2].value,
-  dates: findDates(form.elements[2].value),
+  category: noteItem.category,
+  content: noteItem.content,
+  dates: findDates(noteItem.content),
   archived: false,
 });
 
@@ -122,6 +132,17 @@ export const unarchiveNote = (noteId) => {
   notes.map(note => {
     note.id === noteId ? note.archived = false : false
   })
+}
+
+export const updateNote = (noteId, newNote) => {
+  
+  notes.map((note) => {
+    if (note.id === noteId) {
+      const dates = findDates(newNote.content) ? `${note.dates}, ${findDates(newNote.content)}` : note.dates;
+      const img = categoryIcon.filter((imgObj) => imgObj.imgName === newNote.category)[0]?.imgUrl || ' ';
+      Object.assign(note, newNote, {dates, img});
+    }
+  });
 }
 
 (() =>
